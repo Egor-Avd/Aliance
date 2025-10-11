@@ -155,7 +155,6 @@ body {
 .navbar-button {
   flex-shrink: 0;
   height: 100%;
-  
 }
 .navbar-button .button-icon {
   display: none;
@@ -366,10 +365,43 @@ body {
   border: 1px solid rgba(235, 235, 240, 1);
   transition: border 0.2s;
   padding: 3.125rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: auto 2fr;
+  grid-column-gap: 3.125rem;
+  grid-template-areas:
+    "logo title title"
+    "logo text text";
+}
+.mark-card-logo {
+  width: 100%;
+  fill: #828A99;
+  grid-area: logo;
+}
+.mark-card-title {
+  grid-area: title;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 2.375rem;
+  color: rgba(41, 45, 51, 1);
+}
+.mark-card-text {
+  grid-area: text;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  color: rgba(130, 138, 153, 1);
+  margin-top: .625rem;
 }
 .mark-card:hover {
   border-color: rgba(92, 142, 230, 1);
+}
+.mark-card:hover .mark-card-logo {
+  fill: rgba(92, 142, 230, 1);
+}
+.mark-card:hover .mark-card-title {
+  color: rgba(92, 142, 230, 1);
 }
 
 @media (max-width: 1700px) {
@@ -419,6 +451,9 @@ body {
   }
   .card {
     flex-basis: 50%;
+  }
+  .mark-card {
+    grid-template-columns: auto auto;
   }
 }
 @media (max-width: 992px) {
@@ -543,6 +578,9 @@ body {
   .close-menu .mobile-menu-line:nth-child(3) {
     transform: rotate(-45deg) translateY(-9px);
   }
+  .mark-cards {
+    flex-direction: column;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -567,5 +605,10 @@ body {
   }
   .header-content {
     padding-top: 3rem;
+  }
+  .mark-card {
+    grid-template-areas: 
+    "logo title"
+    "text text";
   }
 }
