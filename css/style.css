@@ -467,6 +467,7 @@ body {
   width: 4.375rem;
   height: 4.375rem;
   filter: grayscale(1);
+  transition: filter 0.2s;
 }
 .clients-logo:hover {
   filter: grayscale(0);
